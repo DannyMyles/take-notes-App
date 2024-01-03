@@ -1,9 +1,9 @@
 import React from 'react'
 
-const NewNoteForm = () => {
+const NewNote = () => {
   return (
     <div>NewNoteForm</div>
   )
 }
 
-export default NewNoteForm
+export default NewNote

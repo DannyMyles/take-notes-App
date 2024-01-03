@@ -14,6 +14,10 @@ import Public from "./components/Public";
 import Welcome from "./features/auth/Welcome";
 import ErrorPage from "./routes/ErrorPage";
 import PrivateOutlet from "./utils/PrivateOutlet";
+import EditUser from './features/users/EditUser'
+import NewUserForm from './features/users/NewUserForm'
+import NewNote from './features/notes/NewNote'
+import EditNote from "./features/notes/EditNote";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,10 +30,24 @@ const router = createBrowserRouter(
 
       {/* Private routes */}
       {/* <Route element={<PrivateOutlet />}> */}
-        <Route index element={<Welcome />} />
-        <Route path="notes" element={<NotesList />} />
-        <Route path="users" element={<UsersList />} />
-      {/* </Route> */}
+      <Route index element={<Welcome />} />
+
+      {/* User routes */}
+      <Route path="users">
+        <Route index element={<UsersList />} />
+        <Route path=":id" element={<EditUser />} />
+        <Route path="new" element={<NewUserForm />} />
+      </Route>
+      <Route path="users" element={<UsersList />} />
+      {/* End User*/}
+
+      {/* Notes routes */}
+      <Route path="notes">
+        <Route index element={<NotesList />} />
+        <Route path=":id" element={<EditNote />} />
+        <Route path="new" element={<NewNote />} />
+      </Route>
+      {/* End notes*/}
 
       {/* Unmatched Route will render the ErrorPage component */}
     </Route>
